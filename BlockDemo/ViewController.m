@@ -13,6 +13,7 @@
 @property (nonatomic, strong) NSString *(^blockAsMemberVar)(void);
 
 -(void)testBlockStorageType;
+-(void)addNumber:(int)num1 withNumber:(int)num2 andComletionHandler:(void (^)(int result))comletionHandler;
 
 @end
 
@@ -21,11 +22,71 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    // void with different blocks
+    [self differentExamples];
+    // Outputs:
+    //BlockDemo[9426:851934] 1
+    //BlockDemo[9426:851934] Wed Jun  6 23:21:24 2018
+    //BlockDemo[9426:851934] 22.848001
+    //BlockDemo[9426:851934] 5, 2372256
     
+    // void with __block variable
+    [self testBlockStorageType]; // Output: 25
+    
+    // void with comletionHandler
+    [self example4]; // Output: The result is: x
+    
+}
+
+
+// A block declaration follows the next syntax pattern:
+/// ReturnType (^blockName)(Parameters)
+/*
+-(void)examples1 {
+    
+    int (^firstBlock)(NSString *par1, int param2);
+    
+    void (^showName)(NSString *myName);
+    
+    NSDate *(^whatDayItis)(void);
+    
+    void (^allVoid)(void);
+    
+    NSString *(^composeName)(NSString *firstName, NSString *lastName);
+}
+
+-(void)example2 {
+    int (^firstBlock)(NSString *, int);
+    
+    void (^showName)(NSString *);
+    
+    NSDate *(^whatDayIsIt)(void);
+    
+    void (^allVoid)(void);
+    
+    NSString *(^composeName)(NSString *, NSString *);
+}
+
+// example 1 & example 2 - is equal!
+*/
+
+/*
+-(void)example3 {
+    
+    int (^howMany)(int, int) = ^(int a, int b) {
+        return a + b;
+    };
+    
+    void (^justAMessage)(NSString *) = ^(NSString *str) {
+        NSLog(@"%@", str);
+    };
+}
+*/
+
+-(void)differentExamples {
     _blockAsMemberVar = ^(void) {
         return @"This block is declared as a member variable!";
     };
-    
     
     // 1
     int (^howMany)(int, int) = ^(int a, int b) {
@@ -56,53 +117,7 @@
     };
     
     NSLog(@"%d, %d", factor, newResult); // Output: 5, 2421984 (second value must be differet)
-    // problem way!
-    
-    
-    [self testBlockStorageType];
-    
-}
-
-
-// A block declaration follows the next syntax pattern:
-/// ReturnType (^blockName)(Parameters)
-
--(void)examples1 {
-    
-    int (^firstBlock)(NSString *par1, int param2);
-    
-    void (^showName)(NSString *myName);
-    
-    NSDate *(^whatDayItis)(void);
-    
-    void (^allVoid)(void);
-    
-    NSString *(^composeName)(NSString *firstName, NSString *lastName);
-}
-
--(void)example2 {
-    int (^firstBlock)(NSString *, int);
-    
-    void (^showName)(NSString *);
-    
-    NSDate *(^whatDayIsIt)(void);
-    
-    void (^allVoid)(void);
-    
-    NSString *(^composeName)(NSString *, NSString *);
-}
-
-// example 1 & example 2 - is equal!
-
--(void)example3 {
-    
-    int (^howMany)(int, int) = ^(int a, int b) {
-        return a + b;
-    };
-    
-    void (^justAMessage)(NSString *) = ^(NSString *str) {
-        NSLog(@"%@", str);
-    };
+                                         // problem way!
 }
 
 -(void)testBlockStorageType  {
@@ -117,6 +132,21 @@
     
     //NSLog(@"%d", someValue);
     NSLog(@"%d", myOperation()); // Output: 25
+}
+
+// Here is the declaration pattern of a method which contains a completion handler to make callbacks:
+
+/// -(returnType)methodNameWithParams:(parameterType)parameterName ...<more params>... andCompletionHandler:(void(^)(<any block params>))completionHandler;
+
+-(void)addNumber:(int)num1 withNumber:(int)num2 andComletionHandler:(void (^)(int))comletionHandler {
+    int result = num1 + num2;
+    comletionHandler(result);
+}
+
+-(void)example4 {
+    [self addNumber:8 withNumber:9 andComletionHandler:^(int result) {
+        NSLog(@"The result is: %d", result); // Output: The result is: x
+    }];
 }
 
 
