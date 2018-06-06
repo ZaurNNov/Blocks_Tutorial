@@ -36,6 +36,16 @@
     // void with comletionHandler
     [self example4]; // Output: The result is: x
     
+    // void with GCD
+    [self voidGCD];
+    // Outputs:
+    //BlockDemo[10774:964735] This is N1 thread!
+    //Preparing to run code in other thread...
+    //BlockDemo[10774:964735] This is N1 thread, again!
+    //BlockDemo[10774:964788] Run other thread...
+    //BlockDemo[10774:964788] thread work...
+    //Example: value = 0, after work value = 49500000
+    
 }
 
 
@@ -147,6 +157,32 @@
     [self addNumber:8 withNumber:9 andComletionHandler:^(int result) {
         NSLog(@"The result is: %d", result); // Output: The result is: x
     }];
+}
+
+// GCD
+-(void)voidGCD {
+    
+    NSLog(@"This is N1 thread!\nPreparing to run code in other thread...");
+//    dispatch_queue_t myQoeue = dispatch_queue_create(@"My Queue", NULL); //name of queue must be "xxx" without '@'
+    dispatch_queue_t myQueue = dispatch_queue_create("My Queue", NULL);
+    
+    dispatch_async(myQueue, ^{
+        NSLog(@"Run other thread...");
+        
+        // some work
+        int value = 0;
+        for (int i = 0; i < 100; i++) {
+            for (int j = 0; j < 100; j++) {
+                for (int s = 0; s < 100; s++) {
+                    value += i;
+                }
+            }
+        }
+        NSLog(@"thread work...\nExample: value = 0, after work value = %d\n\n", value);
+    });
+    
+    NSLog(@"This is N1 thread, again!");
+    
 }
 
 
