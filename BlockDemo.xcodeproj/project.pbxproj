@@ -63,8 +63,8 @@
 				CE8C561920C7F181004B524D /* ViewController.h */,
 				CE8C561A20C7F181004B524D /* ViewController.m */,
 				CE8C561C20C7F181004B524D /* Main.storyboard */,
-				CE8C561F20C7F183004B524D /* Assets.xcassets */,
 				CE8C562120C7F183004B524D /* LaunchScreen.storyboard */,
+				CE8C561F20C7F183004B524D /* Assets.xcassets */,
 				CE8C562420C7F183004B524D /* Info.plist */,
 				CE8C562520C7F183004B524D /* main.m */,
 			);
@@ -291,7 +291,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = StudyTest.BlockDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +307,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = StudyTest.BlockDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
