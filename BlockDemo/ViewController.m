@@ -25,12 +25,40 @@
     };
     
     
-    
+    // 1
     int (^howMany)(int, int) = ^(int a, int b) {
         return a + b;
     };
     
+    // 2
     NSLog(@"%d", howmany(5, 10));
+    
+    NSDate *(^today)(void);
+    today = ^(void) {
+        return [NSDate date];
+    };
+    
+    NSLog(@"%@", today());  // Output: Wed Jun  6 14:40:02 2018
+    
+    // 3
+    float results = ^(float val1, float val2, float val3) {
+        return val1 * val2 * val3;
+    } (1.2 , 3.4, 5.6); // Output: 22.848001
+    
+    NSLog(@"%f", results);
+    
+    // 4
+    int factor = 5;
+    int (^newResult)(void) = ^(void) {
+        return factor *10;
+    };
+    
+    NSLog(@"%d, %d", factor, newResult); // Output: 5, 2421984 (second value must be differet)
+    // problem way!
+    
+    
+    
+    
 }
 
 
