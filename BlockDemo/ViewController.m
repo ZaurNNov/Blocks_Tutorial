@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSString *(^blockAsMemberVar)(void);
 
+-(void)testBlockStorageType;
+
 @end
 
 @implementation ViewController
@@ -57,7 +59,7 @@
     // problem way!
     
     
-    
+    [self testBlockStorageType];
     
 }
 
@@ -101,8 +103,20 @@
     void (^justAMessage)(NSString *) = ^(NSString *str) {
         NSLog(@"%@", str);
     };
+}
+
+-(void)testBlockStorageType  {
+    __block int someValue = 10;
+    //int someValue = 10;
     
+    int (^myOperation)(void) = ^(void) {
+        someValue += 5;
+        
+        return someValue + 10;
+    };
     
+    //NSLog(@"%d", someValue);
+    NSLog(@"%d", myOperation()); // Output: 25
 }
 
 
