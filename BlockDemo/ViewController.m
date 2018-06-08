@@ -8,6 +8,14 @@
 
 #import "ViewController.h"
 
+
+// Односвязный список
+typedef struct Node {
+    int value;
+    char *name;
+    struct Node *nextNode;
+} Node;
+
 @interface ViewController ()
 
 @property (nonatomic, strong) NSString *(^blockAsMemberVar)(void);
@@ -22,12 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // void with array game
-    //[self arrayGames];
-    
-    // void C Lang
-    [self cLanguageFirst];
-    
     /*
     
     // void with different blocks
@@ -56,7 +58,55 @@
      
      */
     
+    // void with array game
+    //[self arrayGames];
+    
+    // void C Lang
+    //[self cLanguageFirst];
+    [self cLanguageSecond];
+    
+    pause();
 }
+
+
+
+-(void)nodePractic {
+    
+    Node arrayOfNodes[10];
+    // is equalIs struct Node arrayOfNodes[10];
+    
+    Node *arrayNode = malloc(10 * sizeof(struct Node));
+    arrayNode[0] = arrayOfNodes[0];
+    
+    // Single node
+    Node *E1 = malloc(sizeof(Node));
+    Node *E2 = malloc(sizeof(Node));
+    Node *E3 = malloc(sizeof(Node));
+    Node *E4 = malloc(sizeof(Node));
+    Node *E5 = malloc(sizeof(Node));
+    
+    // link for next
+    E1->nextNode = E2;
+    E2->nextNode = E3;
+    E3->nextNode = E4;
+    E4->nextNode = E5;
+    
+    // E5 next node nil
+    Node *newE = malloc(sizeof(Node));
+    
+    // insert
+    E2->nextNode = newE;
+    newE->nextNode = E3;
+    
+    // развернуть список
+    // третий на второй, второй на первый, первый в никуда, последний на предпоследний...
+    
+    E5->nextNode = E4;
+    E4->nextNode = E3;
+    
+    // или
+}
+
 
 -(void)cLanguageFirst {
     /// printf tab & fix
@@ -127,6 +177,114 @@
     
     printf("%s = size = %d\n", string1, sizeof(string1));
     printf("%s = size = %d\n", string2, sizeof(string2));
+}
+
+-(void)cLanguageSecond {
+    /// char as digitals
+    /*
+    printf("\n\n/// char as digitals \n");
+    char zero = '0';
+    char two = '2';
+    char five = 53;
+    
+    printf("char zero: %c, char zero: %d\n", zero, zero);
+    printf("char two: %c, char two: %d\n", two, two);
+    printf("result five - two: %d\n", five - two);
+    printf("result(char) five + two: %d\n", five + two);
+    printf("result(char + int) five + two: %d\n", five + 2);
+    printf("result(int) five + two: %c\n", five + 2);
+     */
+    
+    /*
+    char arr1[20] = "Hello";
+    char arr2[] = "Hello";
+    char arr4[] = {'i', 'o', '\0'};
+    char arr3 = "Hello"; // Not valid!
+    
+    char *arr45 = malloc(sizeof(char) * 10);
+    arr45[0] = 'F';
+    arr45[9] = '\0';
+    
+    free(arr45);
+    
+    int arr1Lenght = sizeof(arr1);
+    int arr1StringLenght = strlen(arr1);
+    
+    int arr2Lenght = sizeof(arr2);
+    int arr2StringLenght = strlen(arr2);
+    
+    printf("char arr1[20] = \"Hello\" : %d\n", arr1Lenght);
+    printf("%d\n", arr1StringLenght);
+    printf("char arr2[] = \"Hello\" : %d\n", arr2Lenght);
+    printf("%d\n", arr2StringLenght);
+     
+     */
+    
+    
+    //
+    // вывести количество цифр в числе
+    // вывести массив с элементами числа по порядку (по 1 цифре в массиве)
+    // вывести этот же массив в обратном порядке
+    
+    int num = 9583896; //число до 9 включая
+    
+    printf("digit: %d\n", num);
+    
+    // решение
+    
+    int arr1[50];
+    int idig = 0;
+    int arrX[] = {num};
+    int temp = num;
+    
+    while (num > 0) {
+        arr1[idig] = num % 10;
+        num = num / 10;
+        idig++;
+    }
+    num = temp;
+    
+    // теперь мы знаем из скольки цифр число (idig)
+    // есть массив в котором цифры числа идут в обратном порядке (arr1)
+    // есть массив с одим числом (изначально заданное) - arrX[]
+    
+    printf("count digits idig = %d\n", idig);
+    printf("digits: %d\n", num);
+    
+    // Обратная сортировка массива
+    //int * ;
+    int *arr22 = (int *)malloc(idig * sizeof(int));
+    
+    char *arr2 = (char *)arr22;
+    //int arr3[] = arr2;
+    
+    //int arr3[7];
+    
+    // arr2[idig-i] = arr1[i];
+    
+    arr2[6] = arr1[0];
+    arr2[5] = arr1[1];
+    arr2[4] = arr1[2];
+    arr2[3] = arr1[3];
+    arr2[2] = arr1[4];
+    arr2[1] = arr1[5];
+    arr2[0] = arr1[6];
+    
+    int arr4[4];// = arr22;
+    int arrr[4];
+    
+//    arr2[idig-1-0] = arr1[0];
+//    arr2[idig-1-1] = arr1[1];
+//    arr2[idig-1-1] = arr1[2];
+//    arr2[idig-1-3] = arr1[3];
+//    arr2[idig-1-4] = arr1[4];
+//    arr2[idig-1-5] = arr1[5];
+//    arr2[idig-1-6] = arr1[6];
+    
+    
+//    for (int i = 0; i < idig; i++) {
+//        arr2[idig-i] = arr1[i];
+//    }
     
 }
 
@@ -168,9 +326,6 @@
     //    array[7] = 'r';
     //    array[8] = 'l';
     //    array[9] = '\0';
-    
-    
-
     
     for (int i = 0; i < 13; i++) {
         printf("element %d = %c\n", i, str[i]);
