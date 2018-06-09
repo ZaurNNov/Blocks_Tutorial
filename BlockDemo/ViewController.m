@@ -7,14 +7,15 @@
 //
 
 #import "ViewController.h"
+#import "NodePractic.h"
 
 
-// Односвязный список
-typedef struct Node {
-    int value;
-    char *name;
-    struct Node *nextNode;
-} Node;
+//// Односвязный список
+//typedef struct Node {
+//    int value;
+//    char *name;
+//    struct Node *nextNode;
+//} Node;
 
 @interface ViewController ()
 
@@ -69,7 +70,7 @@ typedef struct Node {
 }
 
 
-
+/*
 -(void)nodePractic {
     
     Node arrayOfNodes[10];
@@ -106,6 +107,7 @@ typedef struct Node {
     
     // или
 }
+ */
 
 
 -(void)cLanguageFirst {
@@ -234,7 +236,6 @@ typedef struct Node {
     
     int arr1[50];
     int idig = 0;
-    int arrX[] = {num};
     int temp = num;
     
     while (num > 0) {
@@ -246,7 +247,6 @@ typedef struct Node {
     
     // теперь мы знаем из скольки цифр число (idig)
     // есть массив в котором цифры числа идут в обратном порядке (arr1)
-    // есть массив с одим числом (изначально заданное) - arrX[]
     
     printf("count digits idig = %d\n", idig);
     printf("digits: %d\n", num);
@@ -270,7 +270,7 @@ typedef struct Node {
     arr2[1] = arr1[5];
     arr2[0] = arr1[6];
     
-    int arr4[4];// = arr22;
+    int arr4[4]; // = arr22;
     int arrr[4];
     
 //    arr2[idig-1-0] = arr1[0];
@@ -287,6 +287,7 @@ typedef struct Node {
 //    }
     
 }
+
 
 -(void)arrayGames {
 
@@ -312,7 +313,6 @@ typedef struct Node {
     int temp[1];
     int sortTemp[numberOfElements];
     for (int i = 0; i < numberOfElements; i++) {
-        
         
     }
     

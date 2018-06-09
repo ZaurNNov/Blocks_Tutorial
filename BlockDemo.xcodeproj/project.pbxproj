@@ -13,7 +13,6 @@
 		CE8C562020C7F183004B524D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8C561F20C7F183004B524D /* Assets.xcassets */; };
 		CE8C562320C7F183004B524D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8C562120C7F183004B524D /* LaunchScreen.storyboard */; };
 		CE8C562620C7F183004B524D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8C562520C7F183004B524D /* main.m */; };
-		CEA7B48B20CABF6900608A4E /* NodePractic.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA7B48A20CABF6900608A4E /* NodePractic.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +26,6 @@
 		CE8C562220C7F183004B524D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8C562420C7F183004B524D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8C562520C7F183004B524D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CEA7B48920CABF6900608A4E /* NodePractic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NodePractic.h; sourceTree = "<group>"; };
-		CEA7B48A20CABF6900608A4E /* NodePractic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NodePractic.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +67,6 @@
 				CE8C561F20C7F183004B524D /* Assets.xcassets */,
 				CE8C562420C7F183004B524D /* Info.plist */,
 				CE8C562520C7F183004B524D /* main.m */,
-				CEA7B48920CABF6900608A4E /* NodePractic.h */,
-				CEA7B48A20CABF6900608A4E /* NodePractic.m */,
 			);
 			path = BlockDemo;
 			sourceTree = "<group>";
@@ -146,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA7B48B20CABF6900608A4E /* NodePractic.m in Sources */,
 				CE8C561B20C7F181004B524D /* ViewController.m in Sources */,
 				CE8C562620C7F183004B524D /* main.m in Sources */,
 				CE8C561820C7F181004B524D /* AppDelegate.m in Sources */,
