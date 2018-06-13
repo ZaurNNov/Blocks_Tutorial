@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "NodePractic.h"
+#import "ArrayGame.h"
 
 
 //// Односвязный список
@@ -59,12 +59,13 @@
      
      */
     
-    // void with array game
-    //[self arrayGames];
-    
     // void C Lang
     //[self cLanguageFirst];
-    [self cLanguageSecond];
+    //[self cLanguageSecond];
+    
+    // void with array game
+    ArrayGame *ag = [[ArrayGame alloc] init];
+    [ag arrayGames];
     
     pause();
 }
@@ -230,7 +231,7 @@
     
     int num = 9583896; //число до 9 включая
     
-    printf("digit: %d\n", num);
+    printf("Заданное число: %d\n", num);
     
     // решение
     
@@ -244,96 +245,54 @@
         idig++;
     }
     num = temp;
-    
+    const int count = idig;
     // теперь мы знаем из скольки цифр число (idig)
     // есть массив в котором цифры числа идут в обратном порядке (arr1)
     
-    printf("count digits idig = %d\n", idig);
-    printf("digits: %d\n", num);
+    printf("Количество цифр в числе = %d\n", count);
+    
+    // первые числа массива
+    printf("первые числа массива: ");
+    for (int i=0; i<count+count; i++) printf("%d ",arr1[i]);
+    printf("\n");
+    
+    // Создание пустого массива и наполнение его первыми элементами по количеству цифр (idig)
+    printf("Создание пустого массива и наполнение его первыми элементами по количеству цифр...");
+    int arr2[count];
+    for (int i=0; i<count; i++) arr2[i] = arr1[i];
+    printf("\n");
+    
+    // вывод на печать нового массива
+    printf("Вывод на печать нового массива: ");
+    for (int i=0; i<count; i++) printf("%d ",arr2[i]);
+    printf("\n");
     
     // Обратная сортировка массива
-    //int * ;
-    int *arr22 = (int *)malloc(idig * sizeof(int));
+    printf("Обратная сортировка (реверс) нового массива...");
+    int b; // буфер значения
     
-    char *arr2 = (char *)arr22;
-    //int arr3[] = arr2;
+    for (int i = 0; i < count/2; i++) {
+        b = arr2[i];
+        arr2[i] = arr2[count-i-1];
+        arr2[count-i-1] = b;
+    }
+    printf("\n");
     
-    //int arr3[7];
-    
-    // arr2[idig-i] = arr1[i];
-    
-    arr2[6] = arr1[0];
-    arr2[5] = arr1[1];
-    arr2[4] = arr1[2];
-    arr2[3] = arr1[3];
-    arr2[2] = arr1[4];
-    arr2[1] = arr1[5];
-    arr2[0] = arr1[6];
-    
-    int arr4[4]; // = arr22;
-    int arrr[4];
-    
-//    arr2[idig-1-0] = arr1[0];
-//    arr2[idig-1-1] = arr1[1];
-//    arr2[idig-1-1] = arr1[2];
-//    arr2[idig-1-3] = arr1[3];
-//    arr2[idig-1-4] = arr1[4];
-//    arr2[idig-1-5] = arr1[5];
-//    arr2[idig-1-6] = arr1[6];
+    // вывод на печать нового массива
+    printf("Вывод на печать реверс массива: ");
+    for (int i=0; i<count; i++) printf("%d ",arr2[i]);
+    printf("\n");
     
     
-//    for (int i = 0; i < idig; i++) {
-//        arr2[idig-i] = arr1[i];
-//    }
+    // сдвиг массива на 4 позиции влево
+    printf("сдвиг массива на 4 позиции влево: ");
+    
     
 }
 
 
--(void)arrayGames {
 
-    int numberOfElements = 10;
-    int array[numberOfElements];
-    char *str = "Hello world!";
-    
-    array[0] = 87;
-    array[1] = 8;
-    array[2] = 1;
-    array[3] = 153;
-    array[4] = 3;
-    array[5] = 613;
-    array[6] = 4;
-    array[7] = 44;
-    array[8] = 4;
-    array[9] = 4;
-    
-    for (int i = 0; i < numberOfElements; i++) {
-        printf("Array[numberOfElements] : element %d = %d\n", i, array[i]);
-    }
-    
-    int temp[1];
-    int sortTemp[numberOfElements];
-    for (int i = 0; i < numberOfElements; i++) {
-        
-    }
-    
-    //    array[0] = 'H';
-    //    array[1] = 'e';
-    //    array[2] = 'l';
-    //    array[3] = 'l';
-    //    array[4] = 'o';
-    //    array[5] = 'w';
-    //    array[6] = 'o';
-    //    array[7] = 'r';
-    //    array[8] = 'l';
-    //    array[9] = '\0';
-    
-    for (int i = 0; i < 13; i++) {
-        printf("element %d = %c\n", i, str[i]);
-    }
-    
-    printf("%s\n", str);
-    
-}
+
 
 
 
