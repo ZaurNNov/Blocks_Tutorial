@@ -32,14 +32,8 @@
     [super viewDidLoad];
 
     /*
-    
     // void with different blocks
     [self differentExamples];
-    // Outputs:
-    //BlockDemo[9426:851934] 1
-    //BlockDemo[9426:851934] Wed Jun  6 23:21:24 2018
-    //BlockDemo[9426:851934] 22.848001
-    //BlockDemo[9426:851934] 5, 2372256
     
     // void with __block variable
     [self testBlockStorageType]; // Output: 25
@@ -49,68 +43,18 @@
     
     // void with GCD
     [self voidGCD];
-    // Outputs:
-    //BlockDemo[10774:964735] This is N1 thread!
-    //Preparing to run code in other thread...
-    //BlockDemo[10774:964735] This is N1 thread, again!
-    //BlockDemo[10774:964788] Run other thread...
-    //BlockDemo[10774:964788] thread work...
-    //Example: value = 0, after work value = 49500000
-     
      */
     
     // void C Lang
-    //[self cLanguageFirst];
-    //[self cLanguageSecond];
+    [self cLanguageFirst];
+    [self cLanguageSecond];
     
     // void with array game
     ArrayGame *ag = [[ArrayGame alloc] init];
     [ag arrayGames];
     
-    [self cLanguageSecond];
     pause();
 }
-
-
-/*
--(void)nodePractic {
-    
-    Node arrayOfNodes[10];
-    // is equalIs struct Node arrayOfNodes[10];
-    
-    Node *arrayNode = malloc(10 * sizeof(struct Node));
-    arrayNode[0] = arrayOfNodes[0];
-    
-    // Single node
-    Node *E1 = malloc(sizeof(Node));
-    Node *E2 = malloc(sizeof(Node));
-    Node *E3 = malloc(sizeof(Node));
-    Node *E4 = malloc(sizeof(Node));
-    Node *E5 = malloc(sizeof(Node));
-    
-    // link for next
-    E1->nextNode = E2;
-    E2->nextNode = E3;
-    E3->nextNode = E4;
-    E4->nextNode = E5;
-    
-    // E5 next node nil
-    Node *newE = malloc(sizeof(Node));
-    
-    // insert
-    E2->nextNode = newE;
-    newE->nextNode = E3;
-    
-    // развернуть список
-    // третий на второй, второй на первый, первый в никуда, последний на предпоследний...
-    
-    E5->nextNode = E4;
-    E4->nextNode = E3;
-    
-    // или
-}
- */
-
 
 -(void)cLanguageFirst {
     /// printf tab & fix
@@ -185,7 +129,7 @@
 
 -(void)cLanguageSecond {
     /// char as digitals
-    /*
+    
     printf("\n\n/// char as digitals \n");
     char zero = '0';
     char two = '2';
@@ -197,9 +141,9 @@
     printf("result(char) five + two: %d\n", five + two);
     printf("result(char + int) five + two: %d\n", five + 2);
     printf("result(int) five + two: %c\n", five + 2);
-     */
     
-    /*
+    
+    
     char arr1[20] = "Hello";
     char arr2[] = "Hello";
     char arr4[] = {'i', 'o', '\0'};
@@ -221,9 +165,6 @@
     printf("%d\n", arr1StringLenght);
     printf("char arr2[] = \"Hello\" : %d\n", arr2Lenght);
     printf("%d\n", arr2StringLenght);
-     
-     */
-    
     
     //
     // вывести количество цифр в числе
@@ -236,12 +177,12 @@
     
     // решение
     
-    int arr1[50];
+    int arrr1[50];
     int idig = 0;
     int temp = num;
     
     while (num > 0) {
-        arr1[idig] = num % 10;
+        arrr1[idig] = num % 10;
         num = num / 10;
         idig++;
     }
@@ -254,18 +195,18 @@
     
     // первые числа массива
     printf("первые числа массива: ");
-    for (int i=0; i<count+count; i++) printf("%d ",arr1[i]);
+    for (int i=0; i<count+count; i++) printf("%d ",arrr1[i]);
     printf("\n");
     
     // Создание пустого массива и наполнение его первыми элементами по количеству цифр (idig)
     printf("Создание пустого массива и наполнение его первыми элементами по количеству цифр...");
-    int arr2[count];
-    for (int i=0; i<count; i++) arr2[i] = arr1[i];
+    int arrr2[count];
+    for (int i=0; i<count; i++) arrr2[i] = arrr1[i];
     printf("\n");
     
     // вывод на печать нового массива
     printf("Вывод на печать нового массива: ");
-    for (int i=0; i<count; i++) printf("%d ",arr2[i]);
+    for (int i=0; i<count; i++) printf("%d ",arrr2[i]);
     printf("\n");
     
     // Обратная сортировка массива
@@ -273,15 +214,15 @@
     int b; // буфер значения
     
     for (int i = 0; i < count/2; i++) {
-        b = arr2[i];
-        arr2[i] = arr2[count-i-1];
-        arr2[count-i-1] = b;
+        b = arrr2[i];
+        arrr2[i] = arrr2[count-i-1];
+        arrr2[count-i-1] = b;
     }
     printf("\n");
     
     // вывод на печать нового массива
     printf("Вывод на печать реверс массива: ");
-    for (int i=0; i<count; i++) printf("%d ",arr2[i]);
+    for (int i=0; i<count; i++) printf("%d ",arrr2[i]);
     printf("\n");
     
     
@@ -295,7 +236,7 @@
     printf("Вывод на печать массива: ");
     for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
     printf("\n");
-    printf("сдвиг массива на 3 позиции влево: \n");
+    printf("сдвиг массива на 3 позиции (mooveFeft -> true/false = влево или вправо): \n");
     
     // например массив из 9 элементов [123456789]
     // хотим сдвинуть влево на 2 элемента в итогк должны получить [345678912]
@@ -306,8 +247,9 @@
     //[345678912] // получаем исходный массив со сдвигом влево на 2 элемента
     // метод работает в обоих направлениях
     
-    // теперь сдвиг влево
+    // сдвиг
     if (mooveFeft) {
+        
         for (int i = 0; i < countOfMoove/2; i++) {
             // реверс первой части массива
             boofer = mainArray[i];
@@ -340,7 +282,6 @@
         for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
         printf("\n");
         
-        
         for (int i = 0, s = 0; i < (countArray-countOfMoove)/2; i++, s++) {
             // реверс первой части массива
             boofer = mainArray[i];
@@ -351,6 +292,7 @@
         for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
         printf("\n");
     }
+    // не зависимо от право/лево - реверс массива
     for (int i = 0; i < countArray / 2; i++) {
         // реверс массива
         boofer = mainArray[i];
@@ -361,55 +303,8 @@
     printf("печать готового массива (реверс промежуточного результата): ");
     for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
     printf("\n");
-    
-
-    
 }
 
-
-// A block declaration follows the next syntax pattern:
-/// ReturnType (^blockName)(Parameters)
-/*
--(void)examples1 {
-    
-    int (^firstBlock)(NSString *par1, int param2);
-    
-    void (^showName)(NSString *myName);
-    
-    NSDate *(^whatDayItis)(void);
-    
-    void (^allVoid)(void);
-    
-    NSString *(^composeName)(NSString *firstName, NSString *lastName);
-}
-
--(void)example2 {
-    int (^firstBlock)(NSString *, int);
-    
-    void (^showName)(NSString *);
-    
-    NSDate *(^whatDayIsIt)(void);
-    
-    void (^allVoid)(void);
-    
-    NSString *(^composeName)(NSString *, NSString *);
-}
-
-// example 1 & example 2 - is equal!
-*/
-
-/*
--(void)example3 {
-    
-    int (^howMany)(int, int) = ^(int a, int b) {
-        return a + b;
-    };
-    
-    void (^justAMessage)(NSString *) = ^(NSString *str) {
-        NSLog(@"%@", str);
-    };
-}
-*/
 
 -(void)differentExamples {
     _blockAsMemberVar = ^(void) {
@@ -463,7 +358,6 @@
 }
 
 // Here is the declaration pattern of a method which contains a completion handler to make callbacks:
-
 /// -(returnType)methodNameWithParams:(parameterType)parameterName ...<more params>... andCompletionHandler:(void(^)(<any block params>))completionHandler;
 
 -(void)addNumber:(int)num1 withNumber:(int)num2 andComletionHandler:(void (^)(int))comletionHandler {
@@ -500,8 +394,90 @@
     });
     
     NSLog(@"This is N1 thread, again!");
-    
 }
+
+/*
+ -(void)nodePractic {
+ 
+ Node arrayOfNodes[10];
+ // is equalIs struct Node arrayOfNodes[10];
+ 
+ Node *arrayNode = malloc(10 * sizeof(struct Node));
+ arrayNode[0] = arrayOfNodes[0];
+ 
+ // Single node
+ Node *E1 = malloc(sizeof(Node));
+ Node *E2 = malloc(sizeof(Node));
+ Node *E3 = malloc(sizeof(Node));
+ Node *E4 = malloc(sizeof(Node));
+ Node *E5 = malloc(sizeof(Node));
+ 
+ // link for next
+ E1->nextNode = E2;
+ E2->nextNode = E3;
+ E3->nextNode = E4;
+ E4->nextNode = E5;
+ 
+ // E5 next node nil
+ Node *newE = malloc(sizeof(Node));
+ 
+ // insert
+ E2->nextNode = newE;
+ newE->nextNode = E3;
+ 
+ // развернуть список
+ // третий на второй, второй на первый, первый в никуда, последний на предпоследний...
+ 
+ E5->nextNode = E4;
+ E4->nextNode = E3;
+ 
+ // или
+ }
+ */
+
+// A block declaration follows the next syntax pattern:
+/// ReturnType (^blockName)(Parameters)
+/*
+ -(void)examples1 {
+ 
+ int (^firstBlock)(NSString *par1, int param2);
+ 
+ void (^showName)(NSString *myName);
+ 
+ NSDate *(^whatDayItis)(void);
+ 
+ void (^allVoid)(void);
+ 
+ NSString *(^composeName)(NSString *firstName, NSString *lastName);
+ }
+ 
+ -(void)example2 {
+ int (^firstBlock)(NSString *, int);
+ 
+ void (^showName)(NSString *);
+ 
+ NSDate *(^whatDayIsIt)(void);
+ 
+ void (^allVoid)(void);
+ 
+ NSString *(^composeName)(NSString *, NSString *);
+ }
+ 
+ // example 1 & example 2 - is equal!
+ */
+
+/*
+ -(void)example3 {
+ 
+ int (^howMany)(int, int) = ^(int a, int b) {
+ return a + b;
+ };
+ 
+ void (^justAMessage)(NSString *) = ^(NSString *str) {
+ NSLog(@"%@", str);
+ };
+ }
+ */
 
 
 @end
