@@ -67,6 +67,7 @@
     ArrayGame *ag = [[ArrayGame alloc] init];
     [ag arrayGames];
     
+    [self cLanguageSecond];
     pause();
 }
 
@@ -284,16 +285,86 @@
     printf("\n");
     
     
-    // сдвиг массива на 4 позиции влево
-    printf("сдвиг массива на 4 позиции влево: ");
+    // сдвиг массива на 3 позиции влево (false = вправо)
+    int mainArray[9] = {1,2,3,4,5,6,7,8,9};
+    int countOfMoove = 3;
+    bool mooveFeft = true; // "7 8 9 1 2 3 4 5 6" or "4 5 6 7 8 9 1 2 3"
     
+    int countArray = 9;
+    int boofer = 0;
+    printf("Вывод на печать массива: ");
+    for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
+    printf("\n");
+    printf("сдвиг массива на 3 позиции влево: \n");
+    
+    // например массив из 9 элементов [123456789]
+    // хотим сдвинуть влево на 2 элемента в итогк должны получить [345678912]
+    
+    //[(12)(3456789)] // мысленно дели массив на 2 части (сначало число элементов на которое двигаем в той стороне куда двигаем)
+    //[(21)(9876543)] // делаем реверс каждой части
+    //[(219876543)] // мысленно соединяем что получилось и делаем реверс
+    //[345678912] // получаем исходный массив со сдвигом влево на 2 элемента
+    // метод работает в обоих направлениях
+    
+    // теперь сдвиг влево
+    if (mooveFeft) {
+        for (int i = 0; i < countOfMoove/2; i++) {
+            // реверс первой части массива
+            boofer = mainArray[i];
+            mainArray[i] = mainArray[countOfMoove - 1 - i];
+            mainArray[countOfMoove - i - 1] = boofer;
+        }
+        printf("реверс первой части: ");
+        for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
+        printf("\n");
+        
+        for (int i = countOfMoove, s = 0; s < (countArray-countOfMoove)/2; i++, s++) {
+            // реверс второй части массива
+            boofer = mainArray[i];
+            mainArray[i] = mainArray[countArray - 1 - s];
+            mainArray[countArray - 1 - s] = boofer;
+        }
+        printf("реверс второй части: ");
+        for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
+        printf("\n");
+        
+    } else {
+
+        for (int i = countArray-countOfMoove, s = 0; s < (countOfMoove)/2; i++, s++) {
+            // реверс второй части массива
+            boofer = mainArray[i];
+            mainArray[i] = mainArray[countArray - 1 - s];
+            mainArray[countArray - 1 - s] = boofer;
+        }
+        printf("реверс первой части: ");
+        for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
+        printf("\n");
+        
+        
+        for (int i = 0, s = 0; i < (countArray-countOfMoove)/2; i++, s++) {
+            // реверс первой части массива
+            boofer = mainArray[i];
+            mainArray[i] = mainArray[countArray-countOfMoove - 1 - i];
+            mainArray[countArray-countOfMoove - i - 1] = boofer;
+        }
+        printf("реверс второй части: ");
+        for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
+        printf("\n");
+    }
+    for (int i = 0; i < countArray / 2; i++) {
+        // реверс массива
+        boofer = mainArray[i];
+        mainArray[i] = mainArray[countArray - 1 - i];
+        mainArray[countArray - i - 1] = boofer;
+    }
+    
+    printf("печать готового массива (реверс промежуточного результата): ");
+    for (int i=0; i<countArray; i++) printf("%d ",mainArray[i]);
+    printf("\n");
+    
+
     
 }
-
-
-
-
-
 
 
 // A block declaration follows the next syntax pattern:
