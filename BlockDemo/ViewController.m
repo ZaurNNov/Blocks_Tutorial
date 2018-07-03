@@ -53,8 +53,110 @@
     ArrayGame *ag = [[ArrayGame alloc] init];
     [ag arrayGames];
     
+    [self cLanguageRevers];
+    [self testStringReverse];
+    
     pause();
 }
+
+-(void)cLanguageRevers {
+    //
+    // вывести количество цифр в числе
+    int d = 354986175;
+    printf("\n");
+    printf("вывести количество цифр в числе: %d\n", d);
+    printf("перевернуть (реверс) числа: %d\n", d);
+    
+    
+    // перевод числа в строку
+    NSString *digitString = [NSString stringWithFormat:@"%d", d];
+    NSLog(@"%@ - as string", digitString);
+    NSInteger lenght = [digitString length];
+    NSLog(@"%d = %ld digit", d, (long)lenght);
+    
+    NSMutableString *reversed = [digitString mutableCopy];
+    
+    // reverse 2 digit = first and last, second and pre last etc
+    for (NSInteger i = 0 ; i < lenght / 2; i++) {
+        
+        // temp character
+        unichar first = [reversed characterAtIndex:i];
+        
+        // 1 character range
+        NSRange endRange = NSMakeRange(lenght - i - 1, 1); // last character
+        NSRange beginRange = NSMakeRange(i, 1); // first character
+        
+        // Replace the first character ('h') with the last character ('i')
+        [reversed replaceCharactersInRange:beginRange
+                                withString:[reversed substringWithRange:endRange]]; // first = last
+        
+        // Replace the last character ('i') with the stored first character ('h)
+        [reversed replaceCharactersInRange:endRange withString:[NSString stringWithFormat:@"%c", first]]; // last == first(temp)
+    }
+    
+    NSLog(@"%@ - reverse string", reversed);
+    NSNumber *reverseNumber = @([reversed intValue]);
+    NSLog(@"%d - reverse digit", [reverseNumber intValue]);
+}
+
+-(void)testStringReverse {
+    NSString* str = @"Methods to convert NSString to a NULL-terminated cString using the specified encoding. Note, these are the \"new\" cString methods, and are not deprecated like the older cString methods which do not take encoding arguments.  Also, cString methods should be used just with 8-bit encodings, and not encodings such as UTF-16 or UTF-32.  For those, use methods such as getCharacters:range: (for UTF-16 characters in system endianness) or getBytes:... (which can take any encoding). - (nullable const char *)cStringUsingEncoding:(NSStringEncoding)encoding NS_RETURNS_INNER_POINTER; \"Autoreleased\"; NULL return if encoding conversion not possible; for performance reasons, lifetime of this should not be considered longer than the lifetime of the receiving string (if the receiver string is freed, this might go invalid then, before the end of the autorelease scope). Use only with 8-bit encodings, and not encodings such as UTF-16 or UTF-32. - (BOOL)getCString:(char *)buffer maxLength:(NSUInteger)maxBufferCount encoding:(NSStringEncoding)encoding; NO return if conversion not possible due to encoding errors or too small of a buffer. The buffer should include room for maxBufferCount bytes; this number should accomodate the expected size of the return value plus the NULL termination character, which this method adds. (So note that the maxLength passed to this method is one more than the one you would have passed to the deprecated getCString:maxLength:.) Use only with 8-bit encodings, and not encodings such as UTF-16 or UTF-32. Use this to convert string section at a time into a fixed-size buffer, without any allocations.  Does not NULL-terminate. buffer is the buffer to write to; if NULL, this method can be used to computed size of needed buffer. maxBufferCount is the length of the buffer in bytes. It's a good idea to make sure this is at least enough to hold one character's worth of conversion. usedBufferCount is the length of the buffer used up by the current conversion. Can be NULL. encoding is the encoding to convert to. options specifies the options to apply. range is the range to convert. leftOver is the remaining range. Can be NULL. YES return indicates some characters were converted. Conversion might usually stop when the buffer fills, but it might also stop when the conversion isn't possible due to the chosen encoding.";
+//    NSString* str = @"Objective-C is a object-oriented programming language";
+//    NSString* str = @"1234567890";
+    NSLog(@"REV 1: %@", [self reverseString:str]);
+    printf("\n");
+    NSLog(@"REV 2: %@", [self reverseString2:str]);
+    printf("\n");
+}
+
+-(NSString*)reverseString:(NSString *)str
+{
+    NSMutableString* reversed = [NSMutableString stringWithCapacity:str.length];
+    for (int i = (int)str.length-1; i >= 0; i--){
+        [reversed appendFormat:@"%c", [str characterAtIndex:i]];
+    }
+    return reversed;
+}
+
+/*
+-(NSString*)reverseString2:(NSString *)str
+{
+    char *cstr = (char *)[str UTF8String];
+    uint len = (int)str.length;
+    for (uint i = 0, s = len-1; i < len/2; i++, s--) {
+        char buf = cstr[i];
+        cstr[i] = cstr[s];
+        cstr[s] = buf;
+    }
+    return [[NSString alloc] initWithBytes:cstr length:len encoding:NSUTF8StringEncoding];
+}
+ */
+
+-(NSString*)reverseString2:(NSString *)str
+{
+    NSInteger lenght = [str length];
+    NSMutableString *reversed = [str mutableCopy];
+    
+    // reverse 2 digit = first and last, second and pre last etc
+    for (NSInteger i = 0 ; i < lenght / 2; i++) {
+        
+        // temp character
+        unichar first = [reversed characterAtIndex:i];
+        
+        // 1 character range
+        NSRange endRange = NSMakeRange(lenght - i - 1, 1); // last character
+        NSRange beginRange = NSMakeRange(i, 1); // first character
+        
+        // Replace the first character ('h') with the last character ('i')
+        [reversed replaceCharactersInRange:beginRange
+                                withString:[reversed substringWithRange:endRange]]; // first = last
+        
+        // Replace the last character ('i') with the stored first character ('h)
+        [reversed replaceCharactersInRange:endRange withString:[NSString stringWithFormat:@"%c", first]]; // last == first(temp)
+    }
+    return reversed;
+}
+
 
 -(void)cLanguageFirst {
     /// printf tab & fix
