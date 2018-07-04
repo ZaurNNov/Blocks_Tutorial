@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ArrayGame.h"
+#import "Blocks.h"
 
 
 //// Односвязный список
@@ -55,6 +56,9 @@
     
     [self cLanguageRevers];
     [self testStringReverse];
+    
+    Blocks *b = [[Blocks alloc] init];
+    [b exampleOne];
     
     pause();
 }

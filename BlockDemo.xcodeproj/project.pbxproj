@@ -13,6 +13,7 @@
 		CE8C562020C7F183004B524D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE8C561F20C7F183004B524D /* Assets.xcassets */; };
 		CE8C562320C7F183004B524D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8C562120C7F183004B524D /* LaunchScreen.storyboard */; };
 		CE8C562620C7F183004B524D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8C562520C7F183004B524D /* main.m */; };
+		CEA763E920EB651A009C1DA4 /* Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA763E820EB651A009C1DA4 /* Blocks.m */; };
 		CEBED5BD20D14A2B0068C41C /* ArrayGame.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBED5BC20D14A2B0068C41C /* ArrayGame.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		CE8C562220C7F183004B524D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE8C562420C7F183004B524D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE8C562520C7F183004B524D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEA763E720EB651A009C1DA4 /* Blocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Blocks.h; sourceTree = "<group>"; };
+		CEA763E820EB651A009C1DA4 /* Blocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Blocks.m; sourceTree = "<group>"; };
 		CEBED5BB20D14A2B0068C41C /* ArrayGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArrayGame.h; sourceTree = "<group>"; };
 		CEBED5BC20D14A2B0068C41C /* ArrayGame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArrayGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +75,8 @@
 				CE8C562520C7F183004B524D /* main.m */,
 				CEBED5BB20D14A2B0068C41C /* ArrayGame.h */,
 				CEBED5BC20D14A2B0068C41C /* ArrayGame.m */,
+				CEA763E720EB651A009C1DA4 /* Blocks.h */,
+				CEA763E820EB651A009C1DA4 /* Blocks.m */,
 			);
 			path = BlockDemo;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				CE8C561B20C7F181004B524D /* ViewController.m in Sources */,
 				CE8C562620C7F183004B524D /* main.m in Sources */,
 				CE8C561820C7F181004B524D /* AppDelegate.m in Sources */,
+				CEA763E920EB651A009C1DA4 /* Blocks.m in Sources */,
 				CEBED5BD20D14A2B0068C41C /* ArrayGame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

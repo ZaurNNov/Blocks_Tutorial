@@ -225,6 +225,11 @@
     [self printCArray:sdvig2Temp numberOfElement:numberOfElements asIntDigital:YES];
     printf("\n\n");
     
+//    // Блок и массивы
+//    printf("вывод массива на печать");
+//    [self printCArray:sdvig2Temp numberOfElement:numberOfElements asIntDigital:YES];
+//    printf("\n");
+    
 }
 
 // Слишком часто, поэтому вывел через метод
